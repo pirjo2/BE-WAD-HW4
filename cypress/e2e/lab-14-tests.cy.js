@@ -3,15 +3,15 @@
 
 //shared with students 
 //Test 1 - test the "add post" form
-/* 
-it('Testing the “add Post” form'', () => {
+
+it('Testing the "add Post" form', () => {
     cy.visit('http://localhost:8080/api/addpost')
     cy.contains('Add Post')
     cy.get('input').length > 2
     cy.get('button').should('exist')
     cy.get('button').should('be.visible').and('be.enabled')
-}) 
-*/
+})
+
 
 
 

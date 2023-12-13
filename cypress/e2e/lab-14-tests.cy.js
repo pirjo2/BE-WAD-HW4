@@ -4,6 +4,7 @@
 //shared with students 
 //Test 1 - test the "add post" form
 
+/*
 it('Testing the "add Post" form', () => {
     cy.visit('http://localhost:8080/api/addpost')
     cy.contains('Add Post')
@@ -16,7 +17,7 @@ it('Testing the "add Post" form', () => {
 
 
 //Test 2  - Test the "Sign up" form when password is not valid
-/* 
+/
 it('Testing the sign up form when password is not valid', () => {
     cy.visit('http://localhost:8080/api/signup')
     cy.get('label').length > 2
@@ -25,68 +26,70 @@ it('Testing the sign up form when password is not valid', () => {
     cy.get('button').should('have.css', 'display')
     cy.get('h3').should('contain', 'SignUp')
     // ----- Your code goes here
-    
+    cy.get('[type="email"]').type("name@ut.ee");
+    cy.get('[type="password"]').type("123");
+    cy.get(".SignUp").should("have.class", "SignUp");
+    cy.get("button").should("be.visible");
     // -----
     cy.contains('Password must be at least 8 characters and less than 16 characters, it must include a capital letter and at least one number')
-}) 
-*/
+})
 
 
-//Test 3 - Testing the "Add post" page 
-/* 
+
+//Test 3 - Testing the "Add post" page
+/
 it('Testing the "Add post" page', () => {
     cy.visit('http://localhost:8080/api/addpost')
-    cy.wait(2000)
+    //cy.wait(2000)
     cy.get('#title').type('new post')
-    cy.wait(2000)
+    //cy.wait(2000)
     cy.get('#body').type('new post')
-    cy.wait(2000)
+    //cy.wait(2000)
     // ----- Your code goes here
-    
+    cy.get(".addPost").click();
     // -----
-}) 
-*/
+})
 
 
 
-//Test 4 - Testing the "all posts page and the link to the "a post" page" 
-/* 
+
+//Test 4 - Testing the "all posts page and the link to the "a post" page"
+
 it('all posts page/link to a Post page', () => {
     cy.visit('http://localhost:8080/api/allposts')
-    cy.wait(2000)
+    //cy.wait(2000)
     // ----- Your code goes here
-    
+    cy.get(".singlepost:first").click();
     // -----
-}) 
-*/
+})
 
 
 
-//Test 5 - Test modifying a post in the "a post" page" 
-/* 
+
+//Test 5 - Test modifying a post in the "a post" page"
+
 it('modifying a post', () => {
     cy.visit('http://localhost:8080/api/apost/1') // :id = 1 assuming that you have a post with such id
-    cy.wait(2000)
+    //cy.wait(2000)
     cy.get('#title').clear().type('next post title')
-        // clear() will clear the text before writing  an input
+    // clear() will clear the text before writing  an input
     cy.wait(2000)
 // ----- Your code goes here
-    
+    cy.get("button").should("have.class", "updatePost")
+    cy.get(".updatePost").click();
 // -----
-}) 
-*/
+})
 
 
 
 //Test 6 - Deleting a post in the "a post" page
-/* 
-it('deleting a post', () => {
-    // ----- Your code goes here
-    
-    // -----
-    }) 
-*/
 
+it('deleting a post', () => {
+    cy.visit('http://localhost:8080/api/apost/1')
+    // ----- Your code goes here
+    cy.get(".deletePost").click();
+    // -----
+})*/
 
 
 //========================== Basic API requests =========================

@@ -19,6 +19,34 @@ const maxAge = 60 * 60;
 const generateJWT = (id) => {
     return jwt.sign({ id }, secret, { expiresIn: maxAge })
 }
+app.get('/auth/authenticate', async(req, res) => {
+    console.log('authentication request has been arrived');
+    const token = req.cookies.jwt; // assign the token named jwt to the token const
+    //console.log("token " + token);
+    let authenticated = false; // a user is not authenticated until proven the opposite
+    try {
+        if (token) { //checks if the token exists
+            //jwt.verify(token, secretOrPublicKey, [options, callback]) verify a token
+            await jwt.verify(token, secret, (err) => { //token exists, now we try to verify it
+                if (err) { // not verified, redirect to login page
+                    console.log(err.message);
+                    console.log('token is not verified');
+                    res.send({ "authenticated": authenticated }); // authenticated = false
+                } else { // token exists and it is verified 
+                    console.log('author is authinticated');
+                    authenticated = true;
+                    res.send({ "authenticated": authenticated }); // authenticated = true
+                }
+            })
+        } else { //applies when the token does not exist
+            console.log('author is not authinticated');
+            res.send({ "authenticated": authenticated }); // authenticated = false
+        }
+    } catch (err) {
+        console.error(err.message);
+        res.status(400).send(err.message);
+    }
+});
 
 app.post('/api/posts', async(req, res) => {
     try {

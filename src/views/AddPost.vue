@@ -12,6 +12,7 @@
 </template>
 
 <script>
+//import auth from "../auth";
 export default {
   name: "AddPost",
   data() {
@@ -21,6 +22,7 @@ export default {
         body: "",
         urllink: "",
       },
+    //authResult: auth.authenticated()
     };
   },
   methods: {

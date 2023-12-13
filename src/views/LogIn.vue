@@ -38,7 +38,7 @@ LogIn() {
       .then((response) => response.json())
       .then((data) => {
       console.log(data);
-      location.assign("/");
+      location.assign("/api/AllPosts");
       })
       .catch((e) => {
         console.log(e);

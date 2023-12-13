@@ -51,6 +51,7 @@ SignUp() {
       .then((data) => {
       console.log(data);
       this.$router.push("/");
+      location.assign("/api/AllPosts");
       })
       .catch((e) => {
         console.log(e);

@@ -4,16 +4,49 @@ import APost from "../views/APost.vue";
 import AddPost from "../views/AddPost.vue";
 import SignUp from "../views/SignUp.vue";
 import LogIn from "../views/LogIn.vue";
+import auth from "../auth";
 
 
 
 const routes = [{
-        path: '/',
-        name: 'AllPosts',
-        component: () =>
-            import ("../views/AllPosts.vue")
+    path: "/api/allposts",
+    name: "AllPosts",
+    component: AllPosts,
+    beforeEnter: async(to, from, next) => {
+        let authResult = await auth.authenticated();
+        if (!authResult) {
+            next('/api/login')
+        } else {
+            next();
+        }
+    }
     },
     {
+        path: "/api/addpost",
+        name: "AddPost",
+        component: AddPost,
+        beforeEnter: async(to, from, next) => {
+            let authResult = await auth.authenticated();
+            if (!authResult) {
+                next('/api/login')
+            } else {
+                next();
+            }
+        }
+        },{
+        path: "/api/apost/:id",
+        name: "APost",
+        component: APost,
+        beforeEnter: async(to, from, next) => {
+            let authResult = await auth.authenticated();
+            if (!authResult) {
+                next('/api/login')
+            } else {
+                next();
+            }
+        }
+        },
+    /**{
         path: "/api/allposts",
         name: "AllPosts",
         component: AllPosts,
@@ -23,11 +56,11 @@ const routes = [{
         name: "APost",
         component: APost,
     },
-    {
+   /** {
         path: "/api/addpost",
         name: "AddPost",
         component: AddPost,
-    },
+    },*/
     {
         path: "/api/signup",
         name: "SignUp",
@@ -38,11 +71,11 @@ const routes = [{
         name: "LogIn",
         component: LogIn,
     },
-    { //will route to AllPosts view if none of the previous routes apply
+    /**{ //will route to AllPosts view if none of the previous routes apply
         path: "/:catchAll(.*)",
         name: "AllPosts",
         component: AllPosts,
-    }
+    }*/
 ]
 
 const router = createRouter({

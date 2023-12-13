@@ -3,7 +3,7 @@
     <div id="post-list">
     <h1>All Posts</h1>
      <div class="container">
-    <button   @click="Logout" class="center">Logout</button>
+    <button   v-if = "authResult" @click="Logout" class="center">Logout</button>
     </div>
       <ul>
         <div class="item" v-for="post in posts" :key="post.id">
@@ -20,14 +20,33 @@
 
 
 <script>
+import auth from "../auth";
 export default {
   name: "AllPosts",
   data() {
     return {
       posts: [],
+      authResult: auth.authenticated()
     };
   },
   methods: {
+    Logout() {
+      fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        console.log('jwt removed');
+        //console.log('jwt removed:' + auth.authenticated());
+        this.$router.push("/api/login");
+        //location.assign("/");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error logout");
+      });
+    }, 
     fetchPosts() {
       fetch(`http://localhost:3000/api/posts/`)
         .then((response) => response.json())

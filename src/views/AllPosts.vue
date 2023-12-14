@@ -3,7 +3,7 @@
     <div id="post-list">
     <h1>All Posts</h1>
      <div class="container">
-    <button   v-if = "authResult" @click="Logout" class="center">Logout</button>
+       <button   v-if = "authResult" @click="Logout" class="center">Logout</button>
     </div>
       <ul>
         <div class="item" v-for="post in posts" :key="post.id">
@@ -14,6 +14,10 @@
           </a>
         </div>
       </ul>
+      <div class="container">
+        <button @click="DeleteAll" class="center">Delete all</button>
+        <button @click="AddPost" class="center">Add post</button>
+      </div>
     </div>
   </div>
 </template>
@@ -30,6 +34,23 @@ export default {
     };
   },
   methods: {
+    AddPost() {
+      this.$router.push("/api/addpost"); // Route path to navigate to
+    },
+    DeleteAll() {
+      fetch(`http://localhost:3000/api/posts/`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      })
+          .then((response) => {
+            console.log(response.data);
+            this.$router.push("/api/allposts");
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      window.location.reload();
+    },
     Logout() {
       fetch("http://localhost:3000/auth/logout", {
           credentials: 'include', //  Don't forget to specify this if you need cookies

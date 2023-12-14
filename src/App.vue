@@ -61,6 +61,8 @@ nav a.router-link-exact-active {
 }
 button{
   margin-top: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
   border-radius: 36px;
   background: #FEE996;
   border:0;

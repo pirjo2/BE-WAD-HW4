@@ -2,8 +2,9 @@
   <div>
 
     <nav>
-      <router-link to="/api/allposts">Posts</router-link> 
-     <!-- <router-link to="/api/addpost">Add a Post</router-link> |-->
+      <router-link to="/api/allposts">Posts</router-link>
+      <router-link to="/api/contact">Contact</router-link>
+      <!-- <router-link to="/api/addpost">Add a Post</router-link> |-->
       <!--<router-link to="/api/signup">SignUp</router-link>|-->
        <!--<router-link to="/api/login">Login</router-link>-->
     </nav>
@@ -54,6 +55,7 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  margin: 10px;
 }
 
 nav a.router-link-exact-active {

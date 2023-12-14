@@ -5,6 +5,7 @@ import AddPost from "../views/AddPost.vue";
 import SignUp from "../views/SignUp.vue";
 import LogIn from "../views/LogIn.vue";
 import auth from "../auth";
+import Contact from "../views/Contact";
 
 
 

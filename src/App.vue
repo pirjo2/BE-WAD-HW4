@@ -28,7 +28,7 @@ export default {
         console.log('jwt removed');
         //console.log('jwt removed:' + auth.authenticated());
         this.$router.push("/login");
-        //location.assign("/");
+        //location.assign("/api/login");
       })
       .catch((e) => {
         console.log(e);
@@ -47,7 +47,9 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
+body {
+  background-image: url('./assets/back.jpg');
+}
 nav {
   padding: 30px;
 }
@@ -59,21 +61,23 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #9dcaff;
 }
-button{
-  margin-top: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 36px;
-  background: #FEE996;
-  border:0;
-  font-weight: 700;
-  font-size: 0.8em;
-  display: block;
-  padding: 10px 16px;
-  letter-spacing: 2px;
+button {
+  background: #9dcaff;
+  border: 1px solid #76a8d7; /* Add a border for a subtle 3D effect */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  padding: 10px 20px;
+  margin: 20px;
+  color: #503e52;
+  border-radius: 20px;
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition on hover */
 }
+
+button:hover {
+  transform: scale(1.05); /* Add a slight scale effect on hover */
+}
+
 .container {
   display: flex;
   justify-content: center;

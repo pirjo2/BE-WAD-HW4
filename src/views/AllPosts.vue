@@ -93,20 +93,26 @@ a:hover {
   text-decoration: underline;
 }
 .item {
-  background: rgb(189, 212, 199);
-  margin-bottom: 5px;
-  padding: 3px 5px;
-  border-radius: 10px;
+  background-color:#e8d8ff;
+      border-radius: 0.2em;
+      padding: 8px 20px;
+      margin-left: 10em;
+      margin-right: 10em;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      box-shadow: none;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
 }
-#post-list {
-  background: #6e8b97;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
-  margin-bottom: 30px;
-  padding: 10px 20px;
-  margin: auto;
-  width: 50%;
-  border-radius: 20px;
+
+.item-content {
+    font-size: 1.0em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
 }
+
 #post-list ul {
   padding: 0;
 }
@@ -117,4 +123,12 @@ a:hover {
   padding: 20px;
   background: rgba(255, 255, 255, 0.7);
 }
+@media (max-width: 800px) {
+        .item {
+            margin: 1em;
+        }
+        .allPosts {
+            margin: 1em;
+        }
+        }
 </style>

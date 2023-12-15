@@ -75,7 +75,7 @@ app.get('/api/posts', async(req, res) => {
 
 app.get('/api/posts/:id', async(req, res) => {
     try {
-        console.log("get a post with route parameter  request has arrived");
+        console.log("get a post with route parameter request has arrived");
         const { id } = req.params;
         const posts = await pool.query(
             "SELECT * FROM posttable WHERE id = $1", [id]

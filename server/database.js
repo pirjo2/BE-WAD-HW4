@@ -3,8 +3,8 @@ const Pool = require('pg').Pool;
 // this code will work and a table will be created if you have already created the "testWad" database.
 const pool = new Pool({
     user: "postgres",
-    password: "kelli23", // Enter your password here
-    database: "testWAD2", //Try to use the same name for your database
+    password: "kullamees0", // Enter your password here
+    database: "testWad", //Try to use the same name for your database
     host: "localhost",
     port: "5433"
 });
@@ -25,9 +25,8 @@ const execute = async(query1, query2) => {
 const createTblQuery1 = `
     CREATE TABLE IF NOT EXISTS "posttable" (
 	    "id" SERIAL PRIMARY KEY,         
-	    "title" VARCHAR(200) NOT NULL,
 	    "body" VARCHAR(200) NOT NULL,
-        "urllink" VARCHAR(200)  
+        "date" VARCHAR(200) NOT NULL
     );`;
 
 const createTblQuery2 = `

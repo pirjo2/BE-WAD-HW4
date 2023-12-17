@@ -1,7 +1,10 @@
 <template>
 <div class="Contact">
   <div id="post-list">
-    <p>Contact information</p>
+    <h1>Contact information</h1>
+    <a>You can reach us at our@mail.com</a>
+    <br><br>
+    <a>Or send a letter at ThisManIsland, Good city, Funny district, Treet 123c</a>
   </div>
 </div>
 </template>

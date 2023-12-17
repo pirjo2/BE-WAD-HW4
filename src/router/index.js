@@ -47,10 +47,10 @@ const routes = [{
             }
         }
         },
-    /**{
-        path: "/api/allposts",
+    {
+        path: "/api/contact",
         name: "AllPosts",
-        component: AllPosts,
+        component: Contact,
     },
     {
         path: "/api/apost/:id",

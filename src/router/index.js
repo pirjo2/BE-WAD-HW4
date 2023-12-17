@@ -49,7 +49,7 @@ const routes = [{
         },
     {
         path: "/api/contact",
-        name: "AllPosts",
+        name: "Contact",
         component: Contact,
     },
     {

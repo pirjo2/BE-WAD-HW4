@@ -17,7 +17,7 @@
      return {
        post: {
          body: "",
-         date: new Date(),
+         date: new Date().toDateString(),
        },
      //authResult: auth.authenticated()
      };

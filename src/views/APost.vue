@@ -23,7 +23,7 @@
         post: {
           id: "",
           body: "",
-          date: new Date(),
+          date: new Date().toDateString(),
         },
       };
     },
